@@ -1,0 +1,6 @@
+/* line 1, ../sass/main.scss */
+.list-title {
+  list-style: none;
+  font-weight: bold;
+  line-height: 3em;
+}
