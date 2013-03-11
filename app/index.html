@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="life">
 <head>
 	<title>Home</title>
 	<meta charset="UTF-8">
@@ -8,35 +8,22 @@
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" media="screen">
 </head>
 <body>
-	<h1>To-Do:</h1><br>
-	<table class="table table-striped">
-		<tr><td>10 Job Applications</td></tr>
-		<tr><td>Organise Filesystem</td></tr>
-		<tr><td>MAF Emails</td></tr>
-		<tr><td>Eastcoast Emails</td></tr>
-		<tr><td>Edwin Mixing</td></tr>
-		<tr><td>Julie Website</td></tr>
-		<tr><td>Washing</td></tr>
-		<tr><td>Backup Hard Drives</td></tr>
-		<tr><td>Hack Design Tutorial</td></tr>
-	</table>
+	<div ng-view></div>
 	
-	<div>
-		<label>Name:</label>
-		<input type="text" ng-model="yourName" placeholder="Enter a name here">
-		<hr>
-		<h1>Hello {{yourName}}!</h1>
-	</div>
+	
+	<script src="lib/angular.js"></script>
+	
+	<script src="javascript/app.js"></script>
+	<script src="javascript/controllers.js"></script>
 	
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.9.1.js">
 	</script>
-	<!-- Fallback in case remote jQuery resource is unavailable -->
+	<!-- Fallback in case remote jQuery resource is unavailable 
 	<script type="text/javascript">  
 		if (typeof jquery == 'undefined') {  
-		  document.write(unescape("%3cscript src='/lib/jquery-1.9.1.js' type='text/javascript'%3e%3c/script%3e"));  
+		  document.write(unescape("%3cscript src='lib/jquery-1.9.1.js' type='text/javascript'%3e%3c/script%3e"));  
 		}  
-	</script>
+	</script> -->
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="lib/angular.js"></script>
 </body>
 </html>
