@@ -37,6 +37,12 @@ $app->get('/hello/:name', function($name) {
     echo "Hello, $name";
 });
 
+// GET route for todo list
+
+$app->get('/tasks', 'getTasks');
+
+
+
 // POST route
 $app->post('/post', function () {
     echo 'This is a POST route';
@@ -59,3 +65,26 @@ $app->delete('/delete', function () {
  * and returns the HTTP response to the HTTP client.
  */
 $app->run();
+
+function getTasks() {
+	$sql = "select * FROM todo ORDER BY id";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($tasks);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getConnection() {
+	$dbhost="localhost";
+	$dbuser="root";
+	$dbpass="root";
+	$dbname="life";
+	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	return $dbh;
+}
